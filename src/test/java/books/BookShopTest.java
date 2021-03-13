@@ -18,7 +18,6 @@ public class BookShopTest {
      */
 	private BookShop bookStore;
 	private final int bookStorePrice = 8;
-	private final double scaleFactor = Math.pow(10, 2);
 
 	@BeforeEach
 	public void setUp() throws Exception{ 

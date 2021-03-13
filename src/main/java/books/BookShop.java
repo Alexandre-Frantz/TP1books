@@ -1,7 +1,4 @@
 package books;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.IntStream;
 
 public class BookShop {
@@ -18,7 +15,7 @@ public class BookShop {
 		this.bookShopName = bookShopName;
 		this.bookPrice = bookPrice;
 	}
-	
+
 	/**
 	 * method to compute the cost of a basket
 	 * <p> Example basket = {1,2,3,0,0} </p> 
@@ -27,38 +24,34 @@ public class BookShop {
 	 * 
 	 */
 	public double cost(int [] books){
-		
+
 		int bookLength = books.length; // length of array containing purchased books
-		
-		double discount = 0.0; // discount applied to purchase
-		double scale = Math.pow(10, 2); // used to round 2 decimals after the .
-		
+		double discount = 0.0; // discount applied to purchase		
 		int uniqueBooks = 0; // number of different books
-		
 		int totalBooks = IntStream.of(books).sum(); // total amount of books to be bought
-		
+
 		if(bookLength == 5) {
 			for(int i = 0; i < bookLength; i++) {
 				if(books[i] > 0) {
 					++uniqueBooks;
 				}
 			}
-			
+
 			switch(uniqueBooks) { 
 			case 2:
-				discount = (uniqueBooks * this.bookPrice * 0.07 ); 
+				discount = (uniqueBooks * this.getBookPrice() * 0.07 ); 
 				System.out.println("Discount: " + discount);
 				break;
 			case 3:
-				discount = (uniqueBooks * this.bookPrice * 0.14 );
+				discount = (uniqueBooks * this.getBookPrice() * 0.14 );
 				System.out.println("Discount: " + discount);
 				break;
 			case 4:
-				discount = (uniqueBooks * this.bookPrice * 0.28 );
+				discount = (uniqueBooks * this.getBookPrice() * 0.28 );
 				System.out.println("Discount: " + discount);
 				break;
 			case 5:
-				discount = (uniqueBooks * this.bookPrice * 0.35 );
+				discount = (uniqueBooks * this.getBookPrice() * 0.35 );
 				System.out.println("Discount: " + discount);
 				break;
 
@@ -68,6 +61,18 @@ public class BookShop {
 			System.out.println("Book array is contains more or less entries than the supposed 5");
 			return - 1.0;
 		}
-		return this.bookPrice * totalBooks - discount;
+		return this.getBookPrice() * totalBooks - discount;
+	}
+
+	public int getBookPrice() {
+		return bookPrice;
+	}
+
+	public void setBookPrice(int bookPrice) {
+		this.bookPrice = bookPrice;
+	}
+
+	public String getBookShopName() {
+		return bookShopName;
 	}
 }
