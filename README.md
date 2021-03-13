@@ -4,9 +4,9 @@
 
 # To complete: 
 
-* Name :
-* Student Id:
-* Email :
+* Name : Alexandre Frantz
+* Student Id: 0170616914
+* Email : alexandre.frantz.001@student.uni.lu
 
 ### Setting
 In this practical session, you will code a method to compute the cost of shopping basket and test it using JUnit.
